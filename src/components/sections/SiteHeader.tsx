@@ -15,7 +15,7 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import Drawer from '@mui/material/Drawer'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { useTheme } from '@mui/material/styles'
+import { alpha, useTheme } from '@mui/material/styles'
 import { Menu, X } from 'lucide-react'
 import { useGSAP } from '@gsap/react'
 
@@ -99,7 +99,18 @@ function SiteHeader() {
                 <Menu strokeWidth={1.5} />
               </IconButton>
             ) : (
-              <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
+              <Stack
+                direction="row"
+                spacing={0.5}
+                sx={{
+                  alignItems: 'center',
+                  p: 0.5,
+                  borderRadius: 999,
+                  bgcolor: alpha(theme.palette.text.primary, 0.035),
+                  border: '1px solid',
+                  borderColor: 'divider',
+                }}
+              >
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.href.slice(1)
                   return (
@@ -108,23 +119,19 @@ function SiteHeader() {
                       href={link.href}
                       disableRipple
                       sx={{
-                        px: 1.5,
-                        color: isActive ? 'primary.dark' : 'text.primary',
+                        px: 2,
+                        py: 0.75,
+                        minWidth: 0,
+                        borderRadius: 999,
+                        fontSize: '0.875rem',
+                        color: isActive ? 'primary.dark' : 'text.secondary',
+                        bgcolor: isActive ? alpha(theme.palette.primary.main, 0.14) : 'transparent',
                         fontWeight: isActive ? 700 : 500,
-                        '&:hover': { bgcolor: 'transparent', color: 'primary.dark' },
-                        '&::after': {
-                          content: '""',
-                          position: 'absolute',
-                          left: 12,
-                          right: 12,
-                          bottom: 4,
-                          height: 2,
-                          borderRadius: 1,
-                          bgcolor: 'primary.main',
-                          transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
-                          transition: 'transform 200ms ease',
+                        transition: 'background-color 180ms ease, color 180ms ease',
+                        '&:hover': {
+                          bgcolor: alpha(theme.palette.primary.main, isActive ? 0.18 : 0.08),
+                          color: 'primary.dark',
                         },
-                        '&:hover::after': { transform: 'scaleX(1)' },
                       }}
                     >
                       {link.label}
