@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import useMediaQuery from '@mui/material/useMediaQuery'
 import { useTheme } from '@mui/material/styles'
 import { MapPin } from 'lucide-react'
+import useReducedMotion from '../hooks/useReducedMotion'
 
 export interface HeroSlide {
   src: string
@@ -23,7 +23,7 @@ interface HeroSlideshowProps {
  */
 export default function HeroSlideshow({ slides, interval = 5000 }: HeroSlideshowProps) {
   const theme = useTheme()
-  const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
+  const reduceMotion = useReducedMotion()
   const [index, setIndex] = useState(0)
 
   useEffect(() => {

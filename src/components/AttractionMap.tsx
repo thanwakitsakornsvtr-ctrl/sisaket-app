@@ -120,7 +120,12 @@ function AttractionMap({ attractions, onSelect }: AttractionMapProps) {
           borderColor: 'divider',
         }}
       >
-        <MapContainer center={center} zoom={9} style={{ height: '100%', width: '100%' }}>
+        <MapContainer
+          center={center}
+          zoom={9}
+          scrollWheelZoom={false}
+          style={{ height: '100%', width: '100%' }}
+        >
           <ForceView center={center} zoom={9} />
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

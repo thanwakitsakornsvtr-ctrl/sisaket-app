@@ -1,7 +1,12 @@
+export type AttractionCategory = 'ธรรมชาติ' | 'ปราสาทขอม' | 'วัด' | 'สันทนาการ'
+
+export const attractionCategories: AttractionCategory[] = ['ธรรมชาติ', 'ปราสาทขอม', 'วัด', 'สันทนาการ']
+
 export interface Attraction {
   id: string
   name: string
   district: string
+  category: AttractionCategory
   lat: number
   lng: number
   image: string
@@ -24,6 +29,7 @@ export const attractions: Attraction[] = [
     id: 'pha-mor-e-daeng',
     name: 'ผามออีแดง (อุทยานแห่งชาติเขาพระวิหาร)',
     district: 'อำเภอกันทรลักษ์',
+    category: 'ธรรมชาติ',
     lat: 14.4451,
     lng: 104.7329,
     image: commonsFilePath('Mo_view_from_Pha_Mo_I_Daeng_Stairway.JPG'),
@@ -38,6 +44,7 @@ export const attractions: Attraction[] = [
     id: 'sa-kamphaeng-yai',
     name: 'ปราสาทสระกำแพงใหญ่',
     district: 'อำเภออุทุมพรพิสัย',
+    category: 'ปราสาทขอม',
     lat: 15.101,
     lng: 104.125,
     image: commonsFilePath('ปราสาทหินวัดสระกำแพงใหญ่_(Wat_Sa_Kamphaeng_Yai_Sanctuary)_8_(2019).jpg'),
@@ -52,6 +59,7 @@ export const attractions: Attraction[] = [
     id: 'sa-kamphaeng-noi',
     name: 'ปราสาทสระกำแพงน้อย',
     district: 'อำเภออุทุมพรพิสัย',
+    category: 'ปราสาทขอม',
     lat: 15.1465,
     lng: 104.247398,
     image: commonsFilePath('Prasat_Sa_Kamphaeng_Noi-001.jpg'),
@@ -66,6 +74,7 @@ export const attractions: Attraction[] = [
     id: 'wat-lan-khuad',
     name: 'วัดป่ามหาเจดีย์แก้ว (วัดล้านขวด)',
     district: 'อำเภอขุนหาญ',
+    category: 'วัด',
     lat: 14.618516,
     lng: 104.418962,
     image: commonsFilePath('Million_Bottle_Temple_(7447377506).jpg'),
@@ -80,6 +89,7 @@ export const attractions: Attraction[] = [
     id: 'wat-phra-that-rueang-rong',
     name: 'วัดบ้านสร้างเรือง (พระธาตุเรืองรอง)',
     district: 'อำเภอเมืองศรีสะเกษ',
+    category: 'วัด',
     lat: 15.1658823,
     lng: 104.2987995,
     image: commonsFilePath('Wat_Phra_That_Ruang_Rong-003.jpg'),
@@ -94,6 +104,7 @@ export const attractions: Attraction[] = [
     id: 'rasi-salai-dam',
     name: 'เขื่อนราษีไศล',
     district: 'อำเภอราษีไศล',
+    category: 'สันทนาการ',
     lat: 15.3438,
     lng: 104.0987,
     image: commonsFilePath('Rasisalai_dam.jpg'),
